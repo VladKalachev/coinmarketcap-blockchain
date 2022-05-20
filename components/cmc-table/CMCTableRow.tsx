@@ -1,7 +1,7 @@
 import Image from 'next/image'
 import More from '../../assets/svg/more'
 import Star from '../../assets/svg/star'
-import CoinNameRow from '../coinNameRow'
+import CoinNameRow from '../CoinNameRow'
 import Rate from './Rate'
 import { useRouter } from 'next/router'
 
