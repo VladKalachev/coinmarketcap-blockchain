@@ -13,7 +13,23 @@ import {
   usdcAddress,
 } from '../lib/constants'
 
-export const CoinMarketContext = createContext({})
+type CoinMarketContextProps = {
+  getTopTenCoins: any
+  openBuyCryptoModal: any
+  setOpenBuyCryptoModal: any
+  coins: any
+  loadingCoins: any
+  fromToken: any
+  toToken: any
+  setFromToken: any
+  setToToken: any
+  amount: any
+  setAmount: any
+  // mint,
+  // openModal,
+}
+
+export const CoinMarketContext = createContext<CoinMarketContextProps>({})
 
 type Provider = {
   children?: React.ReactChild | React.ReactChild[]
@@ -40,19 +56,19 @@ export const CoinMarketProvider = ({ children }: Provider) => {
   //     }
   //   }, [isAuthenticated])
 
-  //   const getContractAddress = () => {
-  //     if (fromToken === 'Dai') return daiAddress
-  //     if (fromToken === 'Dogecoin') return dogeAddress
-  //     if (fromToken === 'Link') return linkAddress
-  //     if (fromToken === 'usdc') return usdcAddress
-  //   }
+  const getContractAddress = () => {
+    if (fromToken === 'Dai') return daiAddress
+    if (fromToken === 'Dogecoin') return dogeAddress
+    if (fromToken === 'Link') return linkAddress
+    if (fromToken === 'usdc') return usdcAddress
+  }
 
-  //   const getToAddress = () => {
-  //     if (toToken === 'Dai') return daiAddress
-  //     if (toToken === 'Dogecoin') return dogeAddress
-  //     if (toToken === 'Link') return linkAddress
-  //     if (toToken === 'Usdc') return usdcAddress
-  //   }
+  const getToAddress = () => {
+    if (toToken === 'Dai') return daiAddress
+    if (toToken === 'Dogecoin') return dogeAddress
+    if (toToken === 'Link') return linkAddress
+    if (toToken === 'Usdc') return usdcAddress
+  }
 
   //   const getToAbi = () => {
   //     if (toToken === 'Dai') return daiAbi
@@ -143,20 +159,20 @@ export const CoinMarketProvider = ({ children }: Provider) => {
   //     console.log(receipt)
   //   }
 
-  //   const getTopTenCoins = async () => {
-  //     try {
-  //       const res = await fetch('/api/getTopTen')
-  //       const data = await res.json()
-  //       return data.data.data
-  //     } catch (e) {
-  //       console.log(e?.message)
-  //     }
-  //   }
+  const getTopTenCoins = async () => {
+    try {
+      const res = await fetch('/api/getTopTen')
+      const data = await res.json()
+      return data.data.data
+    } catch (e: any) {
+      console.log(e?.message)
+    }
+  }
 
   return (
     <CoinMarketContext.Provider
       value={{
-        // getTopTenCoins,
+        getTopTenCoins,
         openBuyCryptoModal,
         setOpenBuyCryptoModal,
         coins,

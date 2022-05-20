@@ -11,7 +11,7 @@ const styles = {
 type TrendingCard = {
   title: string
   icon: string
-  trendingData: TrendingCardRow
+  trendingData: TrendingCardRowType
 }
 
 const TrendingCard = ({ icon, title, trendingData }: any) => {
