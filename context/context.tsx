@@ -49,12 +49,12 @@ export const CoinMarketProvider = ({ children }: Provider) => {
   const [toToken, setToToken] = useState('')
   const [amount, setAmount] = useState('')
 
-  //   useEffect(() => {
-  //     if (isAuthenticated) {
-  //       const account = user?.get('ethAddress')
-  //       setCurrentAccount(account)
-  //     }
-  //   }, [isAuthenticated])
+  useEffect(() => {
+    if (isAuthenticated) {
+      const account = user?.get('ethAddress')
+      setCurrentAccount(account)
+    }
+  }, [isAuthenticated])
 
   const getContractAddress = () => {
     if (fromToken === 'Dai') return daiAddress
