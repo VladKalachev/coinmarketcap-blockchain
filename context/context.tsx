@@ -70,12 +70,12 @@ export const CoinMarketProvider = ({ children }: Provider) => {
     if (toToken === 'Usdc') return usdcAddress
   }
 
-  //   const getToAbi = () => {
-  //     if (toToken === 'Dai') return daiAbi
-  //     if (toToken === 'Dogecoin') return dogeAbi
-  //     if (toToken === 'Link') return linkAbi
-  //     if (toToken === 'Usdc') return usdcAbi
-  //   }
+  const getToAbi = () => {
+    if (toToken === 'Dai') return daiAbi
+    if (toToken === 'Dogecoin') return dogeAbi
+    if (toToken === 'Link') return linkAbi
+    if (toToken === 'Usdc') return usdcAbi
+  }
 
   //   const openModal = () => {
   //     setOpenBuyCryptoModal(true)
