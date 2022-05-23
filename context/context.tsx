@@ -144,20 +144,20 @@ export const CoinMarketProvider = ({ children }: Provider) => {
   //     }
   //   }
 
-  //   //Send eth function
-  //   const sendEth = async () => {
-  //     if (!isAuthenticated) return
-  //     const contractAddress = getToAddress()
+  //Send eth function
+  const sendEth = async () => {
+    if (!isAuthenticated) return
+    const contractAddress = getToAddress()
 
-  //     let options = {
-  //       type: 'native',
-  //       amount: Moralis.Units.ETH('0.01'),
-  //       receiver: contractAddress,
-  //     }
-  //     const transaction = await Moralis.transfer(options)
-  //     const receipt = await transaction.wait()
-  //     console.log(receipt)
-  //   }
+    let options: any = {
+      type: 'native',
+      amount: Moralis.Units.ETH('0.01'),
+      receiver: contractAddress,
+    }
+    const transaction: any = await Moralis.transfer(options)
+    const receipt = await transaction.wait()
+    console.log(receipt)
+  }
 
   const getTopTenCoins = async () => {
     try {
