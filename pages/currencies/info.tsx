@@ -1,11 +1,11 @@
 import CMCpriceConverter from '../../components/priceConverter'
 
-import Header from '../../components/header'
+import Header from '../../components/Header'
 import solana from '../../assets/solana.png'
 import Usd from '../../assets/svg/usd'
 import { useEffect, useState } from 'react'
-import Graph from '../../components/graph'
-import Chat from '../../components/chat'
+import Graph from '../../components/Graph'
+import Chat from '../../components/Chat'
 
 const styles = {
   activeTab: `p-1 px-2 mr-2 rounded-lg bg-[#171924]`,
@@ -31,7 +31,7 @@ const Currencies = () => {
 
   const getData = async () => {
     const queryString = window.location.search
-    const urlParams = new URLSearchParams(queryString)
+    const urlParams: any = new URLSearchParams(queryString)
 
     setCoinName(urlParams.get('coin'))
     setPrice(Number(urlParams.get('price')).toLocaleString())
