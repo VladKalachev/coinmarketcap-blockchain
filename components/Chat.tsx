@@ -4,7 +4,7 @@ import { GunContext } from '../context/gunContext'
 import { faker } from '@faker-js/faker'
 import ChevronUp from '../assets/svg/chevronUp'
 import ChatCard from './chatCard'
-import Button from './button'
+import Button from './Button'
 import shiba from '../assets/shiba.png'
 import Image from 'next/image'
 
@@ -34,12 +34,12 @@ const Chat = () => {
   }, [])
 
   const formattedMessagesArray = () => {
-    const uniqueArray = state.messages.filter((value, index) => {
+    const uniqueArray = state.messages.filter((value: any, index: any) => {
       const _value = JSON.stringify(value)
 
       return (
         index ===
-        state.messages.findIndex((obj) => {
+        state.messages.findIndex((obj: any) => {
           return JSON.stringify(obj) === _value
         })
       )
@@ -146,7 +146,7 @@ const Chat = () => {
       {formattedMessagesArray()
         .slice(0)
         .reverse()
-        .map((message, index) => (
+        .map((message: any, index: any) => (
           <ChatCard
             key={index}
             sender={message.sender}
