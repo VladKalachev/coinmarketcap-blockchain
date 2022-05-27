@@ -13,7 +13,7 @@ const Price = () => {
 
   const getData = async () => {
     const queryString = window.location.search
-    const urlParams = new URLSearchParams(queryString)
+    const urlParams: any = new URLSearchParams(queryString)
 
     setCoinName(urlParams.get('coin'))
     setPrice(Number(urlParams.get('price')).toLocaleString(0))
