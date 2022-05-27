@@ -25,6 +25,7 @@ type CoinMarketContextProps = {
   setToToken: any
   amount: any
   setAmount: any
+  convertCrypto: any
   // mint,
   // openModal,
 }
