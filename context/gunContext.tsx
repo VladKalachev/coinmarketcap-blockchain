@@ -3,11 +3,17 @@ import Gun from 'gun'
 
 const gun = Gun(['https://discord-gun-node.herokuapp.com/gun'])
 
-export const GunContext = createContext({})
+type GunContextProps = {
+  gun: any
+  getMessages: any
+  state: any
+}
+
+export const GunContext = createContext<GunContextProps>({})
 
 const initialState = { messages: [] }
 
-const reducer = (state, action) => {
+const reducer = (state: any, action: any) => {
   try {
     if (action.type == 'clear') return { messages: [] }
     if (action.type == 'add') {
@@ -18,13 +24,13 @@ const reducer = (state, action) => {
   }
 }
 
-export const GunProvider = ({ children }) => {
+export const GunProvider = ({ children }: any) => {
   const [state, dispatch] = useReducer(reducer, initialState)
 
-  const getMessages = (_name) => {
-    const messagesRef = gun.get(_name)
+  const getMessages = (_name: any) => {
+    const messagesRef: any = gun.get(_name)
 
-    messagesRef.map().once((message) => {
+    messagesRef.map().once((message: any) => {
       dispatch({
         type: 'add',
         data: {

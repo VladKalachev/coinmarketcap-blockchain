@@ -27,6 +27,7 @@ type ChatCardProps = {
   senderAvatar: string
   likes: string
   comments: string
+  senderUsername: string
 }
 
 const ChatCard = ({
