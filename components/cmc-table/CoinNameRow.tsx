@@ -1,11 +1,11 @@
 import Image from 'next/image'
 
-type CoinNameRow = {
+type CoinNameRowPRops = {
   name: string
   icon: string
 }
 
-const CoinNameRow = ({ name, icon }: CoinNameRow) => {
+const CoinNameRow = ({ name, icon }: CoinNameRowPRops) => {
   return (
     <div className="flex">
       <Image src={icon} alt={name} width={20} height={20} />
