@@ -4,7 +4,11 @@ const styles = {
   dropdownBtn: `flex items-center mr-2 rounded-md px-2 bg-blue-700 cursor-pointer`,
 }
 
-const DropdownBtn = ({ label }: any) => {
+type DropdownBtnProps = {
+  label: string
+}
+
+const DropdownBtn = ({ label }: DropdownBtnProps) => {
   return (
     <div className={styles.dropdownBtn}>
       <p className="mr-2">{label}</p>
