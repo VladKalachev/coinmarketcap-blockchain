@@ -4,7 +4,6 @@ const styles = {
   rateFilled: `bg-green-600 flex items-center px-3 ml-3 rounded-xl`,
 }
 
-// Component
 const RateFilled = () => {
   return (
     <div className={styles.rateFilled}>
