@@ -24,8 +24,8 @@ type CMCpriceConverterProps = {
   to: string
   fromSymbol: string
   toSymbol: string
-  fromLogo: string
-  toLogo: string
+  fromLogo: any
+  toLogo: any
   price: string
 }
 
