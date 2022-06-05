@@ -27,7 +27,7 @@ type CoinMarketContextProps = {
   setAmount: any
   convertCrypto: any
   // mint,
-  // openModal,
+  openModal: any
 }
 
 export const CoinMarketContext = createContext<CoinMarketContextProps>({})
@@ -78,9 +78,9 @@ export const CoinMarketProvider = ({ children }: Provider) => {
     if (toToken === 'Usdc') return usdcAbi
   }
 
-  //   const openModal = () => {
-  //     setOpenBuyCryptoModal(true)
-  //   }
+  const openModal = () => {
+    setOpenBuyCryptoModal(true)
+  }
 
   //   //Mint function for the token with send ether to the contract
   //   const mint = async () => {
@@ -185,7 +185,7 @@ export const CoinMarketProvider = ({ children }: Provider) => {
         amount,
         setAmount,
         // mint,
-        // openModal,
+        openModal,
       }}
     >
       {children}

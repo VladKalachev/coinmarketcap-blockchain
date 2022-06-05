@@ -25,7 +25,7 @@ type CoinNameRow = {
 }
 
 const CoinNameRow = ({ name, icon, clicked }: CoinNameRow) => {
-  //   const { openModal } = useContext(CoinMarketContext)
+  const { openModal } = useContext(CoinMarketContext)
 
   const coinIcon = () => {
     switch (name) {
@@ -161,10 +161,7 @@ const CoinNameRow = ({ name, icon, clicked }: CoinNameRow) => {
 
       <p>
         {name === 'Bitcoin' || name === 'Ethereum' || name === 'Tether' ? (
-          <span
-            className={styles.buyButton}
-            //   onClick={() => openModal()}
-          >
+          <span className={styles.buyButton} onClick={() => openModal()}>
             Buy
           </span>
         ) : (
