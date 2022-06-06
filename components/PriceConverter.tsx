@@ -39,7 +39,6 @@ const CMCpriceConverter = ({
   price,
 }: CMCpriceConverterProps) => {
   const { convertCrypto } = useContext(CoinMarketContext)
-  console.log(convertCrypto)
 
   const coinIcon = () => {
     switch (from) {
