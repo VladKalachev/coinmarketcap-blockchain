@@ -146,19 +146,24 @@ const Chat = () => {
       {formattedMessagesArray()
         .slice(0)
         .reverse()
-        .map((message: any, index: any) => (
-          <ChatCard
-            key={index}
-            sender={message.sender}
-            senderUsername={message.username}
-            senderAvatar="https:/encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3OCSMFIW5fZ3vSN6yGpD-w-6SsL2_ZPA_sw&usqp=CAU"
-            bullish={message.isBullish}
-            timestamp={message.createdAt}
-            content={message.content}
-            likes="2.7K"
-            comments="19K"
-          />
-        ))}
+        .map(
+          (
+            { sender, username, isBullish, createdAt, content }: any,
+            index: any
+          ) => (
+            <ChatCard
+              key={index}
+              sender={sender}
+              senderUsername={username}
+              senderAvatar="https:/encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3OCSMFIW5fZ3vSN6yGpD-w-6SsL2_ZPA_sw&usqp=CAU"
+              bullish={isBullish}
+              timestamp={createdAt}
+              content={content}
+              likes="2.7K"
+              comments="19K"
+            />
+          )
+        )}
     </>
   )
 }
