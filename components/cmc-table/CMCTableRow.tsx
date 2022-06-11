@@ -9,7 +9,10 @@ const styles = {
   tableRow: `text-white border-b border-gray-800 text-[0.93rem]`,
 }
 
-type CMCtableRow = {}
+type CMCtableRow = {
+  starNum: string
+  coinName: string
+}
 
 const CMCtableRow = ({
   starNum,
