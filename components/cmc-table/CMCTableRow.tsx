@@ -13,7 +13,7 @@ type CMCtableRow = {
   starNum: string
   coinName: string
 }
-// Component
+
 const CMCtableRow = ({
   starNum,
   coinName,
