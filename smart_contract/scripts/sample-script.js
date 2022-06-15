@@ -1,32 +1,31 @@
-// We require the Hardhat Runtime Environment explicitly here. This is optional
-// but useful for running the script in a standalone fashion through `node <script>`.
-//
-// When running the script with `npx hardhat run <script>` you'll find the Hardhat
-// Runtime Environment's members available in the global scope.
-const hre = require("hardhat");
+const main = async () => {
+  const dogeFactory = await hre.ethers.getContractFactory('DogeCoin')
+  const dogeContract = await dogeFactory.deploy()
+  await dogeContract.deployed()
+  console.log('Dogecoin deployed to:', dogeContract.address)
 
-async function main() {
-  // Hardhat always runs the compile task when running scripts with its command
-  // line interface.
-  //
-  // If this script is run directly using `node` you may want to call compile
-  // manually to make sure everything is compiled
-  // await hre.run('compile');
+  const linkFactory = await hre.ethers.getContractFactory('Link')
+  const linkContract = await linkFactory.deploy()
+  await linkContract.deployed()
+  console.log('LinkToken deployed to:', linkContract.address)
 
-  // We get the contract to deploy
-  const Greeter = await hre.ethers.getContractFactory("Greeter");
-  const greeter = await Greeter.deploy("Hello, Hardhat!");
+  const daiFactory = await hre.ethers.getContractFactory('Dai')
+  const daiContract = await daiFactory.deploy()
+  await daiContract.deployed()
+  console.log('DaiToken deployed to:', daiContract.address)
 
-  await greeter.deployed();
-
-  console.log("Greeter deployed to:", greeter.address);
+  const usdcFactory = await hre.ethers.getContractFactory('Usdc')
+  const usdcContract = await usdcFactory.deploy()
+  await usdcContract.deployed()
+  console.log('UsdcToken deployed to:', usdcContract.address)
 }
 
-// We recommend this pattern to be able to use async/await everywhere
-// and properly handle errors.
-main()
-  .then(() => process.exit(0))
-  .catch((error) => {
-    console.error(error);
-    process.exit(1);
-  });
+(async () => {
+  try {
+    await main()
+    process.exit(0)
+  } catch (error) {
+    console.error(error)
+    process.exit(1)
+  }
+})()
